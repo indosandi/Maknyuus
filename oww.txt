@@ -5,5 +5,9 @@ test om test
 
 PhD kagak kelar2, sakitnya tuh disini... :(
 
+<<<<<<< HEAD
 
 Jombloooo beraksiiii bro
+=======
+Ada meeting, tp kagak ada pizza, kadang disitu saya merasa sedih, WoW...
+>>>>>>> jones

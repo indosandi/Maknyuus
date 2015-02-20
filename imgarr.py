@@ -1,6 +1,4 @@
 from scipy import misc
-#import matplotlib.pyplot as plt
-#import matpotlib.cm as cm # 
 import numpy as np
 class imgarr:
 
@@ -8,6 +6,9 @@ class imgarr:
     def __init__(self):
         self.listInput=[]
         self.nparrayimage=np.array([],dtype=np.float64)
+        self.ueig=None
+        self.seig=None
+        #self.redarrimg=np.array([],dtype=np.float64)
 
     #add string to listInput
     def appInput(self,myin):
@@ -58,20 +59,29 @@ class imgarr:
             totalDim=xdim*ydim
             self.nparrayimage[0:xdim,0:ydim,nindex]=imgGrey[:,:]
             nindex+=1
+    
+    #do PCA on array
+    def setPCA(self):
+        #covariance matrix
+        covM=np.dot(self.nparrayimage.T,self.nparrayimage)
+        u,s,v=np.linalg.svd(covM,full_matrices=True)
+        self.ueig=u
+        self.seig=s
 
-# if run as a script
-#if __name__=="__main__":
-    #myarr=arrimg()
-    ##myarr.appinput("img/Lenna.png")
-    #a=["img/Lenna.png","Lenna.png"]
-    ##a=["Lenna.png"]
-    #myarr.repinput(a)
-    ##print(myarr.listInput)
-    #myarr.imgToArr()
-    #print(myarr.nparrayimage.shape)
-    ##ar2=myarr.rgbToG(ar)
-    #ar2=myarr.nparrayimage[:,:,1]
-    #plt.draw()
-    #plt.imshow(ar2,cmap=cm.Greys_r)
-    #plt.show()
+    #get error given cut
+    def getErr(self,eigint):
+        return 1-np.sum(self.seig[0:eigint])/np.sum(self.seig)
+
+    #get x in different representation
+    def getXp(self,eigint):
+        ucut=np.delete(self.ueig,range(eigint,self.ueig.shape[1]),1)
+        return np.dot(self.nparrayimage,ucut)
+
+    #get x value back after cut
+    def getXred(self,eigint,idX):
+        ucut=np.delete(self.ueig,range(eigint,self.ueig.shape[1]),1)
+        newdata=np.dot(self.nparrayimage[idX,:],ucut)
+        return np.dot(newdata,ucut.T)
+
+
 

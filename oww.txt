@@ -3,5 +3,16 @@ INI Sekarang
 test om test
  sakitnya tuh disini
 
+<<<<<<< HEAD
 coba coba di branch pake command line
  
+=======
+PhD kagak kelar2, sakitnya tuh disini... :(
+
+<<<<<<< HEAD
+
+Jombloooo beraksiiii bro
+=======
+Ada meeting, tp kagak ada pizza, kadang disitu saya merasa sedih, WoW...
+>>>>>>> jones
+>>>>>>> master

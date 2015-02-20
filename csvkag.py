@@ -20,6 +20,7 @@ class csvkag:
     # cut head and since kaggle 
     def cutHead(self):
         del self.csvlist[0]
+        self.genUniqueId()
 
     #generate unique id
     def genUniqueId(self):
@@ -33,6 +34,6 @@ class csvkag:
                 dicttemp[i[1]]=nindex
                 self.npcsvid=np.append(self.npcsvid,nindex)
                 nindex+=1
-            print(i[1],dicttemp[i[1]])
+            #print(i[1],dicttemp[i[1]])
 
         

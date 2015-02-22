@@ -1,4 +1,6 @@
 from scipy import misc
+import pickle
+from covMatrix import covMatrix as covMatrix
 import numpy as np
 class imgarr:
 
@@ -8,15 +10,25 @@ class imgarr:
         self.nparrayimage=np.array([],dtype=np.float64)
         self.ueig=None
         self.seig=None
-        #self.redarrimg=np.array([],dtype=np.float64)
+
+    #save object to file
+    def saveMe(self,str):
+        with open(str,'wb') as output:
+            pickle.dump(self,output,pickle.HIGHEST_PROTOCOL)
+
+    #load obj
+    def loadMe(self,str):
+        with open(str,'rb') as input:
+            tmpObj=pickle.load(input)
+            self.__dict__.update(tmpObj.__dict__)
 
     #add string to listInput
     def appInput(self,myin):
         self.listInput.append(myin)
 
     #fill up listInput with begin end string
-    def fillInput(self,begin,end,total):
-        for i in range(1,total+1):
+    def fillInput(self,begin,end,listNumber):
+        for i in listNumber:
             strtemp=begin+str(i)+end
             self.appInput(strtemp)
 
@@ -63,7 +75,7 @@ class imgarr:
     #do PCA on array
     def setPCA(self):
         #covariance matrix
-        covM=np.dot(self.nparrayimage.T,self.nparrayimage)
+        covM=covMatrix.cov(self.nparrayimage)
         u,s,v=np.linalg.svd(covM,full_matrices=True)
         self.ueig=u
         self.seig=s

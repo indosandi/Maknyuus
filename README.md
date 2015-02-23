@@ -8,6 +8,6 @@ http://www.kaggle.com/c/street-view-getting-started-with-julia
 3. Apply the matrix data to ML algorithma such as Random Forest or SVM
 
 #Future Plan
-Currently library is written in python and utulize scikit as machine learning Library. Future plan is to build Java and use neural network library such as Encog etc
+Currently library is written in python and utulize scikit as machine learning Library. Future plan is to build in Java and use neural network/deep leaning library such as Encog etc
 
 Thanks for coming

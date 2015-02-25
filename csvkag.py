@@ -1,11 +1,36 @@
 import csv
 import numpy as np
 class csvkag:
+
     #init
     def __init__(self):
-        self.csvname="";
+        self.csvname=""
         self.csvlist=[]
+        self.dit={}
         self.npcsvid=np.array([],dtype=np.intc)
+
+    #get key
+    def getKey(self,myinarr):
+        res=[]
+        for myin in myinarr:
+            for key in self.dit.keys():
+                if self.dit[key] == myin:
+                    res.append(key)
+                    break
+        return res
+
+    #for kaggle
+    def wrtCsv(self,noId,arr):
+        str1="ID"
+        str2="Class"
+        f = open('result.csv', 'w')
+        f.write(str1+","+str2+"\n")
+        index=0
+        for i in noId:
+            #print(i)
+            f.write(str(i)+","+arr[index]+"\n")
+            index+=1
+        f.close()
 
     #add input csv
     def addInput(self,myin):
@@ -43,5 +68,6 @@ class csvkag:
             #print(inc)
             inc+=1
             #print(i[1],dicttemp[i[1]])
+        self.dit=dicttemp
 
         

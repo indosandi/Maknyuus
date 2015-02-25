@@ -34,7 +34,8 @@ class imgarr:
 
     #average from RGB to grayscale
     def rgbToG(self,arr):
-        return (arr[:,:,0]+arr[:,:,1]+arr[:,:,2])/3
+        #return (arr[:,:,0]+arr[:,:,1]+arr[:,:,2])/3
+        return 0.2989*arr[:,:,0]+0.5870*arr[:,:,1]+0.1140*arr[:,:,2]
 
     #replace array list input
     def repinput(self,myin):

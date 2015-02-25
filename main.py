@@ -61,7 +61,7 @@ testdata=imgarrtest.nparrayimage
 #testdata=np.dot(imgarrtest.nparrayimage,ucut)
 
 ##setup random forest
-clf = ensemble.RandomForestClassifier(n_estimators=noTree,criterion=critF)
+clf = ensemble.RandomForestClassifier(n_estimators=noTree,criterion=critF,n_jobs=-1)
 print("Classifier:\n\t %s"%str(clf))
 clf = clf.fit(traindata,trainLabel)
 streamobj.saveMe(clf,fileRF)  #save machine learning algorithma as object 

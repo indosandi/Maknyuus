@@ -7,6 +7,11 @@ http://www.kaggle.com/c/street-view-getting-started-with-julia
 2. Reduce feature by taking linear combination of pixel and minimize projection error. Cut the new feature but we can still have 90% of data
 3. Apply the matrix data to ML algorithma such as Random Forest or SVM
 
+#Result
+Not bad for first timer, it can predict up to 40% accuracy.
+perhaps the class is too complicated and try to use more internal library  to be compact.
+Say yes to get better.
+
 #Future Plan
 Currently library is written in python and utulize scikit as machine learning Library. Future plan is to build in Java and use neural network/deep leaning library such as Encog etc
 
